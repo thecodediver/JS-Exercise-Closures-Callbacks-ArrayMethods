@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+Closure is creating a function with its own variables that can be tracked in it's own instance, and altered by its own function that it returns. So when that function return is saved to a variable it has its own unigue scope and variable access.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+Closure is used from the name argument that is passed into the function personalDice and is accessed by the inner return function, you can tell because the inner function prints the name original passed to it's parent function even after the inner function has been called multiple times.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+Whenever dansRoll is called the name will remain the same as it is placed in as the argument, but the roll will always change because the newRoll const in generated inside the inner function and everytime it will reset the value to another random number.
+
 c. What is the lexical scope of `newRoll`? 
+
+The lexical scope of new roll is in the function returned by personalDice
 
 ### Task 3 - Stretch Goals
 
@@ -83,6 +94,12 @@ console.log("b defined? " + (typeof b !== 'undefined'));
 ```
 
 2. Write a function that would allow you to do this using a closure. (This is another interview question we've seen before - when you're ready for answers, view an explanation [here](https://www.coderbyte.com/algorithm/3-common-javascript-closure-questions)).
+
+function createBase(addTo) {
+  return function(thisNum) {
+    return addTo + thisNum;
+  }
+}
 
 ```js
 var addSix = createBase(6);
